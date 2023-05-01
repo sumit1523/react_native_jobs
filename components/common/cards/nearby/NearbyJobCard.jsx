@@ -10,8 +10,8 @@ const NearbyJobCard = ({ job, handleNavigate }) => {
       <TouchableOpacity style={styles.logoContainer}>
         <Image
           source={{
-            uri: checkImageURL(job.employer_logo)
-              ? job.employer_logo
+            uri: checkImageURL(job?.employer_logo)
+              ? job?.employer_logo
               : "https://cdn.logojoy.com/wp-content/uploads/2018/12/14162410/ic_social.svg",
           }}
           resizeMode="contain"
