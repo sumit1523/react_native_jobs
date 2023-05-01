@@ -1,14 +1,39 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from "react";
+import { View, Text, Image } from "react-native";
 
-import styles from './company.style'
+import styles from "./company.style";
+import { icons } from "../../../constants";
+import { checkImageURL } from "../../../utils";
 
-const Company = () => {
+const Company = ({ companyLogo, jobTitle, companyName, Location }) => {
   return (
-    <View>
-      <Text>Company</Text>
+    <View style={styles.container}>
+      <View style={styles.logoBox}>
+        <Image
+          source={{
+            uri: checkImageURL(companyLogo)
+              ? companyLogo
+              : "https://cdn.logojoy.com/wp-content/uploads/2018/12/14162410/ic_social.svg",
+          }}
+          style={styles.logoImage}
+        />
+      </View>
+      <View style={styles.jobTitleBox}>
+        <Text style={styles.jobTitle}>{jobTitle}</Text>
+      </View>
+      <View style={styles.companyInfoBox}>
+        <Text style={styles.companyName}>{companyName}</Text>
+        <View style={styles.locationImage}>
+          <Image
+            source={icons.location}
+            resizeMode="contain"
+            style={styles.locationImage}
+          />
+          <Text style={styles.locationName}>{Location}</Text>
+        </View>
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default Company
+export default Company;
